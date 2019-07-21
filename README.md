@@ -4,7 +4,7 @@ This conversion utility will not translate everything, but it will still save yo
 
 ## Authors: 		Simon Broadley <simonp@influenca.com>; Dr. Simon Antony Roberts <simonxaies@gmail.com>;
 
-### Version:		1.0.2
+### Version:		1.0.3 (Stable)
 
 #### Origin URL:	http://www.me-u.com/php-asp/
 
