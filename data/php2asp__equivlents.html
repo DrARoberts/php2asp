@@ -1,0 +1,475 @@
+<html><head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<style><!--
+body,td,a,p,.h{font-family:arial,sans-serif;} body,td,a,p,.h{font-size: 11px;} .h{color:} .q{text-decoration:none; color:#0000cc;}
+//--></style></head>
+
+<body bgcolor="#FFFFFF">
+<p>notes:</p>
+<ul>
+  <li>an %X% is a comment and is not to be translated</li>
+  <li>a %L% is variable and '[]' characters only</li>
+  <li>other letters %a%, %b%, etc are simply swapped for the equivalent statement 
+    in the ASP function, and can be any number of any characters.</li>
+  <li>anywhere a space occurs in the php functions being looked for, it is taken 
+    to be zero or more spaces</li>
+</ul>
+<table width="800" cellspacing="1" cellpadding="1" border="0">
+  <tbody><tr> 
+    <td><b>PHP function</b></td>
+    <td><b>php terminator</b></td>
+    <td><b>ASP function</b></td>
+    <td><b>ASP terminator</b></td>
+    <td><b>Additional ASP to be inserted at top of page</b></td>
+    <td><b>Additional ASP to be inserted at bottom of page</b></td>
+    <td><b>Flag</b></td>
+    <td><b>Comments</b></td>
+  </tr>
+  <tr> 
+    <td>echo %a% ;</td>
+    <td>&nbsp;</td>
+    <td>Response.Write %a%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>strtolower ( %a% )</td>
+    <td>&nbsp;</td>
+    <td>LCase ( %a% )</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>// %X%#</td>
+    <td>&nbsp;</td>
+    <td>' %X%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>/* %X% */</td>
+    <td>&nbsp;</td>
+    <td>' multiline comment removed</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>explode ( %a% , %b% )</td>
+    <td>&nbsp;</td>
+    <td>split ( %b% , %a% )</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>implode ( %a% , %b% )</td>
+    <td>&nbsp;</td>
+    <td>join ( %b% , %a% )</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>while ( %a% ) {</td>
+    <td>}</td>
+    <td>Do While %a%</td>
+    <td>Loop</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>while ( %a% ) %b% ;</td>
+    <td>&nbsp;</td>
+    <td>Do While %a%<br>
+      %b%;<br>
+      Loop </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>do %a% while ( %b% );</td>
+    <td>&nbsp;</td>
+    <td>Do<br>
+      %a%<br>
+      Loop While %b%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>do { %a% } while ( %b% )</td>
+    <td>&nbsp;</td>
+    <td>Do<br>
+      %a%<br>
+      Loop While %b%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>if ( %a% ) {</td>
+    <td>}</td>
+    <td>If %a% then</td>
+    <td>End If</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>if ( %a ) %b% ; else %c% ;</td>
+    <td>&nbsp;</td>
+    <td>If %a% then<br>
+      %b%;<br>
+      Else<br>
+      %c%;<br>
+      End If</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>if ( %a ) %b% ; </td>
+    <td>&nbsp;</td>
+    <td> 
+      <p>If %a% then<br>
+        %b%;<br>
+        End If</p>
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>for ( $%a% = %b% ; $%c% &lt; %d%; $%e%++ ) {</td>
+    <td>}</td>
+    <td>For $%a% = %b% to %d%</td>
+    <td>Next</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>for ( $%a% = %b% ; $%c% &lt; %d%; $%e%++ ) %f%;</td>
+    <td>&nbsp;</td>
+    <td> 
+      <p>For $%a% = %b% to %d%<br>
+        %f%;<br>
+        Next </p>
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>for ( %a% ; %b% ; %c% ) {</td>
+    <td>}</td>
+    <td>%a%<br>
+      Do While %b%</td>
+    <td>%c%<br>
+      Loop</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>for ( %a% ; %b% ; %c% ) %d% ;</td>
+    <td>&nbsp;</td>
+    <td> 
+      <p>%a%<br>
+        Do While %b%<br>
+        %d%;<br>
+        %c%;<br>
+        Loop </p>
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>print ( %a% )</td>
+    <td>&nbsp;</td>
+    <td>Response.Write %a%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>mysql_query( %a% )</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>} else {</td>
+    <td>&nbsp;</td>
+    <td>Else</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>} elseif (%a%) {</td>
+    <td>&nbsp;</td>
+    <td>ElseIf %a%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>trim ( %a% )</td>
+    <td>&nbsp;</td>
+    <td>Trim ( %a% )</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>array ( %a% )</td>
+    <td>&nbsp;</td>
+    <td>Array ( %a% )</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>$%X% = mysql_connect ( %b% , %c% , %d% ) ; </td>
+    <td>&nbsp;</td>
+    <td>Set objConn = Server.CreateObject("ADODB.Connection")<br>
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>odbc</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>mysql_select_db ( %a% , %b% ) ;</td>
+    <td>&nbsp;</td>
+    <td><br>
+      objConn.Open "odbc_name_of_connection_to_%a%"</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>objConn.Close</td>
+    <td>odbc</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>header ( " location : %a% ");</td>
+    <td>&nbsp;</td>
+    <td>Response.Redirect %a%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>strlen ( %a% )</td>
+    <td>&nbsp;</td>
+    <td>Length ( %a% )</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>urlencode ( %a% )</td>
+    <td>&nbsp;</td>
+    <td>Server.URLEncode ( %a% )</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>urldecode ( %a% )</td>
+    <td>&nbsp;</td>
+    <td>URLDecode ( %a% )</td>
+    <td>&nbsp;</td>
+    <td> 
+      <p>Function URLDecode(strString)<br>
+        outgoing=Array("%91","%92","%96","%0D","%0A","%2F", "%7C","%3F","%21", 
+        "%40", "%5C", "%23", "%24", "%5E", "%26", "%2A", "%28", "%29", "%7D", 
+        "%3A", "%2C", "%7B", "%2B", "%2E", "%2D", "%7E", "%2D", "%5B", "%5F", 
+        "%5D", "%60", "%3D", "%27", "+", "%22","%25")<br>
+        incoming=Array("'","'",",",chr(13),chr(10),"/","|","?","!", "@", "\", 
+        "#", "$", "^", "&amp;", "*", "(", ")", "}", ":", ",", "{", "+", ".", "-", 
+        "~", "-", "[", "_", "]", "`", "=", "'", " ",Chr(34),"%")<br>
+        For i = 0 to 35<br>
+        strString = Replace(strString,outgoing(i),incoming(i))<br>
+        Next<br>
+        URLDecode = strString <br>
+        End Function</p>
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>function %a% ( %b% ) {</td>
+    <td>}</td>
+    <td>Function fn_%a% ( %b% )</td>
+    <td>End Function</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>return ;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>return %a%;</td>
+    <td>&nbsp;</td>
+    <td>$var_the_function_name = %a%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>str_replace ( %a% , %b% , %c% )</td>
+    <td>&nbsp;</td>
+    <td>Replace ( %c% , %a%, %b% )</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>strpos ( %a% , %b% )</td>
+    <td>&nbsp;</td>
+    <td>InStr ( %a% , %b% )-1</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>global %a% ;</td>
+    <td>&nbsp;</td>
+    <td>Global_vars { %a% }</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>This is not a asp function - just a marker to find the global vars</td>
+  </tr>
+  <tr> 
+    <td>$%X% .=%a%;</td>
+    <td>&nbsp;</td>
+    <td>$%X% = $%X% &amp; %a%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>$%X% = %a%;</td>
+    <td>&nbsp;</td>
+    <td>$%X% = %a%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>chr (%a% )</td>
+    <td>&nbsp;</td>
+    <td>chr( %a% )</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>ord ( %a% )</td>
+    <td>&nbsp;</td>
+    <td>asc ( %a% )</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>$%X% ++</td>
+    <td>&nbsp;</td>
+    <td>$%X% = $%X% + 1</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</tbody></table>
+<p>&nbsp; </p>
+
+
+</body></html>
